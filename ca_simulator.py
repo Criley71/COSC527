@@ -171,9 +171,10 @@ class CASimulator():
                 s += row[index]
 
         return s
-    
+    #measure repitiviness in binary sequences (detect patterns)
+    #higher should mean more chaotic
     def calculate_lz_complexity(self):
-        board_bytes = self.board.astype(np.int8).tobytes()
+        board_bytes = self.board.astype(np.int8).tobytes() 
         compressed_data = zlib.compress(board_bytes)
         score = len(compressed_data) / len(board_bytes)
         return score
